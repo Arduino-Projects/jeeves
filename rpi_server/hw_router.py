@@ -6,7 +6,7 @@ import RPi.GPIO as GPIO
 hw_pin_layout = {
     "fan": 18,
     "charger": 16,
-    "coffee": 12
+    "coffee_machine": 12
 }
 
 switch_modes = {

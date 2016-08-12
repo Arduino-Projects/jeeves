@@ -1,6 +1,6 @@
 from websocket import create_connection
 
-ip = '192.168.0.176'
+ip = '10.136.125.217'
 port = 5000
 
 def connect_to_hw_server(control_device):
