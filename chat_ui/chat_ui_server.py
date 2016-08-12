@@ -19,8 +19,8 @@ class BroadcastServerProtocol(WebSocketServerProtocol):
 
 
 class BroadcastServerFactory(WebSocketServerFactory):
-    def __init__(self, url, debug=False, debugCodePaths=False):
-        WebSocketServerFactory.__init__(self, url, debug=debug, debugCodePaths=debugCodePaths)
+    def __init__(self, url):
+        WebSocketServerFactory.__init__(self, url)
         self.clients = []
 
     def register(self, client):
@@ -38,10 +38,10 @@ class BroadcastServerFactory(WebSocketServerFactory):
 
 ServerFactory = BroadcastServerFactory
 
-factory = ServerFactory("ws://127.0.0.1:%d" % ports.ports["chat_ui_server_ws_port"], debug=False, debugCodePaths=False)
+factory = ServerFactory("ws://127.0.0.1:%d" % ports.ports["chat_ui_server_ws_port"])
 
 factory.protocol = BroadcastServerProtocol
-factory.setProtocolOptions(allowHixie76=True)
+factory.setProtocolOptions()
 listenWS(factory)
 
 web_root = File("web")
