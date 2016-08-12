@@ -4,7 +4,6 @@ import speech_recognition as sr
 
 def recognize():
     r = sr.Recognizer()
-    r.energy_threshold = 4000
 
     with sr.Microphone() as source:
         audio = r.listen(source)
